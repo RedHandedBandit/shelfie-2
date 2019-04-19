@@ -12,15 +12,23 @@ class Form extends Component {
     }
 
     addProduct = () => {
-        axios.post('/api/products', this.state).then(response => {
-            console.log('worked', response)
-        }).catch(error => console.log('this didnt work',error))
-        this.props.newInventory()
+        const inventoryObj = {
+            name: this.state.name,
+            price: this.state.price,
+            image: this.state.image
+        }
+        axios.post('/api/product', inventoryObj).then( res => {
+            console.log('axios', inventoryObj)
+            console.log(res.data)
+            this.props.newInventory(res.data)
+        })
+        .catch(error => console.log('this didnt work',error))
+       
         this.setState({name: '', price: 0, image: ''})
     }
 
     handleInputChange(prop, val) {
-        // console.log(this.state)
+        console.log(this.state)
         this.setState({
             [prop]: val
         })

@@ -14,5 +14,13 @@ module.exports = {
         db.create([product_name, product_price, product_image]).then( response => {
             res.status(200).send(response)
         })
+    },
+    removeProduct: (req, res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+
+        db.delete_product([id]).then( response => {
+            res.status(200).send(response)
+        }).catch(error => console.log('delete didnt work', error))
     }
 }

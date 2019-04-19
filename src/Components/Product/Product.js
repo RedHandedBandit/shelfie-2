@@ -9,12 +9,14 @@ class Product extends Component {
         }
     }
 
+
     render(){
         return (
             <div>
                 <h4> {this.props.name} </h4>
                 <div> {this.props.price} </div>
                 <img className="product_img" src={this.props.image} alt="products" />
+                <button onClick={() => this.props.removeProduct(this.props.id)} > delete </button>
             </div>
         )
     }
