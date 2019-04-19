@@ -16,3 +16,4 @@ massive(CONNECTION_STRING).then( db => {
 app.get(`/api/inventory`, Ctrl.getAll)
 app.post(`/api/product`, Ctrl.create)
 app.delete(`/api/removeProduct/:id`, Ctrl.removeProduct )
+app.put(`/api/updateProduct/:id`, Ctrl.updateProduct)
