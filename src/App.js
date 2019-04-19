@@ -28,10 +28,10 @@ class App extends Component {
       let newPrice = {
         price: price
       }
-      console.log('updatePrice baby', newPrice)
+      // console.log('updatePrice baby', newPrice)
       axios.put(`/api/updateProduct/${id}`, newPrice).then( res => {
-        console.log('this is res.data in app',res.data)
-        console.log('this is axios', newPrice)
+        // console.log('this is res.data in app',res.data)
+        // console.log('this is axios', newPrice)
         this.setState({inventory: res.data})
       })
       this.componentDidMount()
