@@ -9,6 +9,10 @@ module.exports = {
     }, 
     create: (req, res) => {
         const {product_name, product_price, product_image} = req.body
-        console.log('hello????????',product_image, product_name, product_price)
+        const db = req.app.get('db')
+
+        db.create([product_name, product_price, product_image]).then( response => {
+            res.status(200).send(response)
+        })
     }
 }

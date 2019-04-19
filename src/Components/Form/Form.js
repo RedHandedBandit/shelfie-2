@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
+import axios from 'axios';
 
 class Form extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             name: '',
             price: 0,
@@ -10,8 +11,16 @@ class Form extends Component {
         }
     }
 
+    addProduct = () => {
+        axios.post('/api/products', this.state).then(response => {
+            console.log('worked', response)
+        }).catch(error => console.log('this didnt work',error))
+        this.props.newInventory()
+        this.setState({name: '', price: 0, image: ''})
+    }
+
     handleInputChange(prop, val) {
-        console.log(this.state)
+        // console.log(this.state)
         this.setState({
             [prop]: val
         })
@@ -43,7 +52,7 @@ class Form extends Component {
                     onChange={(e) => this.handleInputChange('image', e.target.value)}
                     type='text'
                     value={this.state.image} />
-                <button>
+                <button onClick={() => this.addProduct()}>
                     add to inventory
                 </button>
                 <button onClick={() => this.resetState()} > 
