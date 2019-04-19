@@ -12,7 +12,7 @@ class Dashboard extends Component {
     render(){
         let allProducts = this.props.inventory.map((el, i) => {
             return (
-                <Product key={i} name={el.name} price={el.price} image={el.image} />
+                <Product key={i} name={el.product_name} price={el.product_price} image={el.product_image} />
             )
         })
         return (

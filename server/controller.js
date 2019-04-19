@@ -6,5 +6,9 @@ module.exports = {
             res.status(200).send(response)
         })
         .catch(error => console.log('getAll dont work', error))
+    }, 
+    create: (req, res) => {
+        const {product_name, product_price, product_image} = req.body
+        console.log('hello????????',product_image, product_name, product_price)
     }
 }

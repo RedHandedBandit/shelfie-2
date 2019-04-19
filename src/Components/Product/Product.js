@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './Product.css'
 
 class Product extends Component {
     constructor(props){
@@ -13,7 +14,7 @@ class Product extends Component {
             <div>
                 <h4> {this.props.name} </h4>
                 <div> {this.props.price} </div>
-                <div> {this.props.image} </div>
+                <img className="product_img" src={this.props.image} alt="products" />
             </div>
         )
     }
