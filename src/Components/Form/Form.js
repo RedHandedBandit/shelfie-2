@@ -7,7 +7,8 @@ class Form extends Component {
         this.state = {
             name: '',
             price: 0,
-            image: ''
+            image: '',
+            newList: this.props.inventory
         }
     }
 
@@ -19,11 +20,11 @@ class Form extends Component {
         }
         axios.post('/api/product', inventoryObj).then( res => {
             console.log('axios', inventoryObj)
-            console.log(res.data)
-            this.props.newInventory(res.data)
+            console.log(res)
         })
         .catch(error => console.log('this didnt work',error))
-       
+        
+        this.props.newInventory()
         this.setState({name: '', price: 0, image: ''})
     }
 
@@ -43,6 +44,7 @@ class Form extends Component {
     }
 
     render(){
+        
         return (
             <div>
                 <input 

@@ -8,10 +8,11 @@ module.exports = {
         .catch(error => console.log('getAll dont work', error))
     }, 
     create: (req, res) => {
-        const {product_name, product_price, product_image} = req.body
+        console.log(req.body)
+        const {name, price, image} = req.body
         const db = req.app.get('db')
 
-        db.create([product_name, product_price, product_image]).then( response => {
+        db.create([name, price, image]).then( response => {
             res.status(200).send(response)
         })
     },
