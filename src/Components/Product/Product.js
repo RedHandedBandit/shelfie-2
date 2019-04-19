@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 
 class Product extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
 
         }
@@ -11,7 +11,9 @@ class Product extends Component {
     render(){
         return (
             <div>
-                Product
+                <h4> {this.props.name} </h4>
+                <div> {this.props.price} </div>
+                <div> {this.props.image} </div>
             </div>
         )
     }
